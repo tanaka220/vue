@@ -12,20 +12,21 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
     <div id="app">
       <div v-html="message"></div>
     </div>
-    <script>
-      const list = ['One', 'Two', 'Three']
-      const appdata = {
-        data() {
-          return {
-            message: `<ul>
-              <li>${list[0]}</li>
-              <li>${list[1]}</li>
-              <li>${list[2]}</li>
-            </ul>`
-          }
-        }
-      }
-
+		<script>
+			const appdata = {
+			data() {
+			return {
+			message: 'Hello Vue!',
+			count: 0
+			}
+			},
+			mounted() {
+			setInterval(() => {
+			this.count++
+			this.message = 'Count: ' + this.count
+			}, 1000)
+			}
+			}
       Vue.createApp(appdata).mount('#app')
     </script>
   </body>
